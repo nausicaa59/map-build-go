@@ -124,12 +124,13 @@ func Parse() {
         log.Fatal(err)
     }
 
-    for _, f := range files {
+    for i, f := range files {
     	filePath := pathDir + f.Name()
     	prefixe := strings.Replace(f.Name(), ".xml", "", -1)
     	outputName := prefixe + ".csv"
     	outputPath := ouputDir + outputName
-    	cercles := ParseFile(filePath, "input/images/image.png")
+    	inputPicture := "input/images/image" + strconv.Itoa(i) + ".png"
+    	cercles := ParseFile(filePath, inputPicture)
 		WriteCsvOutput(outputPath, cercles)
     }    
 

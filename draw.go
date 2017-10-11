@@ -12,7 +12,7 @@ func placeText(c CercleFinal, dc *gg.Context, X float64, Y float64) {
   largeurCaract := (c.C_x1 - c.C_x0)/float64(nbCaract)
   size := ((1.9755*largeurCaract) -0.0127)
 
-  if(size >= 10) {
+  if(size >= 8) {
     if err := dc.LoadFontFace("input/font/nasalization-rg.ttf", size); err != nil {
       panic(err)
     }
@@ -21,7 +21,6 @@ func placeText(c CercleFinal, dc *gg.Context, X float64, Y float64) {
     dc.SetRGB255(255, 255, 255)
     dc.DrawString(c.Id, X - width/2, Y + height/2)
     dc.Fill()
-    fmt.Println("trace !")    
   }
 }
 

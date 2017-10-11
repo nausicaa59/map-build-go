@@ -2,3 +2,5 @@ output/csv-fusion/*
 output/csv-map/*
 output/csv-partial/*
 output/img-map/*
+input/listePseudo/*
+input/svg/*
