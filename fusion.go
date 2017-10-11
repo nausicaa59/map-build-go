@@ -65,8 +65,15 @@ func Fusion() {
     		if compteur < nbFile {
     			tempo := PartialFile{}
     			tempo.path = ouputDir + files[compteur].Name()
-    			tempo.xCorrection = j*2000
-    			tempo.yCorrection = i*2000
+
+                if (i+1)%2 == 1 {
+                    tempo.xCorrection = j*2090
+                    tempo.yCorrection = i*2000                    
+                }else{
+                    tempo.xCorrection = j*2090 + 2090/2
+                    tempo.yCorrection = i*2000 - 200                       
+                }
+
     			partials = append(partials, tempo)    			
     		} 
     		compteur += 1   		

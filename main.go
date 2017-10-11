@@ -7,8 +7,15 @@ import(
 
 func main(){
 	fmt.Println("start")
-	cleanOutput()
-	Parse()
+    bdd := Impl{}
+    bdd.InitDB()
+    bdd.InitSchema()
+    
+    /*cleanInput()
+    generateInput(bdd, 3)*/
+
+    cleanOutput()
+    Parse()
 	Fusion()
 	initialisation()
 	Draw()

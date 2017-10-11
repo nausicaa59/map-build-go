@@ -63,6 +63,31 @@ func cleanOutput() {
     if _, err := os.Stat(ouputMap); os.IsNotExist(err) {
 	    os.Mkdir(ouputMap, os.ModePerm)
 	}
+
+	//clean partial
+	ouputImg := "output/img-map/"
+    os.RemoveAll(ouputImg)
+
+    if _, err := os.Stat(ouputImg); os.IsNotExist(err) {
+	    os.Mkdir(ouputImg, os.ModePerm)
+	}
+}
+
+
+func cleanInput() {
+	inputListePseudo := "input/listePseudo/"
+    os.RemoveAll(inputListePseudo)
+
+    if _, err := os.Stat(inputListePseudo); os.IsNotExist(err) {
+	    os.Mkdir(inputListePseudo, os.ModePerm)
+	}
+
+	inputSvg := "input/svg/"
+    os.RemoveAll(inputSvg)
+
+    if _, err := os.Stat(inputSvg); os.IsNotExist(err) {
+	    os.Mkdir(inputSvg, os.ModePerm)
+	}
 }
 
 
