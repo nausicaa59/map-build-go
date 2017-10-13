@@ -14,9 +14,18 @@ func main(){
     /*cleanInput()
     generateInput(bdd, 3)*/
 
-    cleanOutput()
+    /*cleanOutput()
     Parse()
 	Fusion()
 	initialisation()
-	Draw()
+	Draw(0,2)*/
+
+	generateAllDim()
+}
+
+func generateAllDim(){
+	for i := 6; i < 7; i++ {
+		//generateDim(i)
+		Draw(i,2)
+	}
 }

@@ -51,6 +51,11 @@ func GetCerclesInSection(c []CercleFinal, sect Section)[]CercleFinal {
 	return s
 }
 
+func getPathDim(dim int) string {
+	strDim 	:= strconv.Itoa(dim)
+	return "output/csv-map/" + strDim + "/"
+}
+
 func generatePathSection(dim int, l int, c int) string {
 	strDim 	:= strconv.Itoa(dim)
 	strL 	:= strconv.Itoa(l)

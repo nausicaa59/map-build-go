@@ -54,3 +54,51 @@ func initialisation() {
     end := time.Now()
     fmt.Println("Duration Initialisation : ",end.Sub(start), len(cerles))	
 }
+
+func scaleCircles(c []CercleFinal, fact int) {
+	for i,_ := range c {
+		c[i].X *= float64(fact)
+		c[i].Y *= float64(fact)
+		c[i].R *= float64(fact)
+		c[i].C_x0 *= float64(fact)
+		c[i].C_y0 *= float64(fact)
+		c[i].C_x1 *= float64(fact)
+		c[i].C_y1 *= float64(fact)
+	}
+}
+
+
+func generateDim(dim int) {
+	start := time.Now()
+	oldDim := dim - 1
+	oldDimPath := getPathDim(oldDim)
+	oldFiles := searchAllFiles(oldDimPath)
+	oldFilesInfo := searchAllInfo(oldFiles)
+	pixelBySection := 256
+	
+	for _,f := range oldFilesInfo {
+		cercles := ReadCsvCircles(f.path)
+		if cercles == nil {
+			continue
+		}
+
+		scaleCircles(cercles, 2)		
+		for l := 0; l < 2; l++ {
+			for c := 0; c < 2; c++ {
+				ligne := (f.ligne * 2) + l
+				colonne := (f.colonne * 2) + c
+				pathSection := generatePathSection(dim, ligne, colonne)				
+				section := Section{}
+				section.x0 = float64(colonne) * float64(pixelBySection)
+				section.x1 = section.x0 + float64(pixelBySection)
+				section.y0 = float64(ligne) * float64(pixelBySection)
+				section.y1 = section.y0 + float64(pixelBySection)
+				selections := GetCerclesInSection(cercles, section)
+				WriteCsvOutput(pathSection, selections)
+			}			
+		}
+	}
+
+    end := time.Now()
+    fmt.Println("Duration build dim : ",end.Sub(start))
+}
