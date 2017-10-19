@@ -111,3 +111,10 @@ func (i *Impl) GetSujetByAuteur(id int) []Sujet {
 	return a
 }
 
+
+func (i *Impl) updateAuteurCoordinate(id string, x float64, y float64) {
+	a := i.GetAuteurByPseudo(id)
+	if a.ID != 0 {
+		i.DB.Model(&a).Updates(map[string]interface{}{"coord_X": x, "coord_Y": y})
+	}
+}

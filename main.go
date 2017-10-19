@@ -12,20 +12,21 @@ func main(){
     bdd.InitSchema()
     
     /*cleanInput()
-    generateInput(bdd, 3)*/
+    generateInput(bdd, 3)
 
-    /*cleanOutput()
+    cleanOutput()
     Parse()
 	Fusion()
 	initialisation()
 	Draw(0,2)*/
 
-	generateAllDim()
+	//generateAllDim()
+	actualisationPositions(bdd)
 }
 
 func generateAllDim(){
-	for i := 6; i < 7; i++ {
-		//generateDim(i)
+	for i := 1; i < 8; i++ {
+		generateDim(i)
 		Draw(i,2)
 	}
 }
